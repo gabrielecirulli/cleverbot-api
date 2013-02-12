@@ -1,0 +1,2 @@
+# CleverBot API
+A very basic and barebones API implementation for CleverBot. Many thanks to Pierre-David Bélanger for his support and [his implementation](http://code.google.com/p/chatter-bot-api/) of the API (over which I've based my own version).
