@@ -1,5 +1,6 @@
 require 'net/http'
 require 'digest/md5'
+require 'pry'
 
 class CleverBot
   def initialize
@@ -12,6 +13,9 @@ class CleverBot
       'islearning' => '1',
       'cleanslate' => 'false'
     }
+    @http = Net::HTTP.new @service_uri.host, @service_uri.port
+    @http.read_timeout = nil
+    @http.open_timeout = nil
     @backlog = []
   end
 
@@ -39,14 +43,9 @@ class CleverBot
 
   def make_request
     query_string = build_query
-    request = Net::HTTP.new @service_uri.host, @service_uri.port
-    request.read_timeout = nil
-    request.open_timeout = nil
 
-    request.start do |http|
-      result = http.post @service_uri.path, query_string
-      return result.body.split "\r"
-    end
+    result = @http.post @service_uri.path, query_string
+    return result.body.split "\r"
   end
 
   def save_data response
