@@ -18,9 +18,10 @@ class CleverBot
     @post_params['stimulus'] = thought
     response = make_request
     save_data response
-    response[16]
+    response[16] # Response text
   end
 
+  private
   def build_query
     current_query = @post_params.to_querystring
     @post_params['icognocheck'] = Digest::MD5.hexdigest current_query[9..28] # 20 characters
@@ -64,8 +65,6 @@ class CleverBot
     @post_params['typingData'] = response[22]
     @post_params['divert'] = response[23]
   end
-
-  private :build_query, :make_request, :save_data
 end
 
 
