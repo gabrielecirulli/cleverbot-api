@@ -12,6 +12,7 @@ class CleverBot
       'islearning' => '1',
       'cleanslate' => 'false'
     }
+    @backlog = []
   end
 
   def think thought
@@ -19,6 +20,14 @@ class CleverBot
     response = make_request
     save_data response
     response[16] # Response text
+  end
+
+  def backlog
+    result = []
+    @backlog.each do |element|
+      result.push element.clone
+    end
+    result
   end
 
   private
@@ -64,6 +73,8 @@ class CleverBot
     @post_params['lineChoicesAbbrev'] = response[21]
     @post_params['typingData'] = response[22]
     @post_params['divert'] = response[23]
+
+    @backlog.push ({'question' => @post_params['vText3'], 'answer' => @post_params['ttsText']})
   end
 end
 
