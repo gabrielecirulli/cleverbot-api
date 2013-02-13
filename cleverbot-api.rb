@@ -6,12 +6,12 @@ class CleverBot
   def initialize
     @service_uri = URI.parse 'http://cleverbot.com/webservicemin'
     @post_params = {
-      'start' => 'y',
-      'icognoid' => 'wsf',
-      'fno' => '0',
-      'sub' => 'Say',
-      'islearning' => '1',
-      'cleanslate' => 'false'
+      start: 'y',
+      icognoid: 'wsf',
+      fno: '0',
+      sub: 'Say',
+      islearning: '1',
+      cleanslate: 'false'
     }
     @http = Net::HTTP.new @service_uri.host, @service_uri.port
     @http.read_timeout = nil
@@ -27,11 +27,7 @@ class CleverBot
   end
 
   def backlog
-    result = []
-    @backlog.each do |element|
-      result.push element.clone
-    end
-    result
+    @backlog.map(&:dup)
   end
 
   private
@@ -49,41 +45,41 @@ class CleverBot
   end
 
   def save_data response
-    @post_params['sessionid'] = response[1]
-    @post_params['logurl'] = response[2]
-    @post_params['vText8'] = response[3]
-    @post_params['vText7'] = response[4]
-    @post_params['vText6'] = response[5]
-    @post_params['vText5'] = response[6]
-    @post_params['vText4'] = response[7]
-    @post_params['vText3'] = response[8]
-    @post_params['vText2'] = response[9]
-    @post_params['prevref'] = response[10]
+    {
+      sessionid: 1,
+      logurl: 2,
+      vText8: 3,
+      vText7: 4,
+      vText6: 5,
+      vText5: 6,
+      vText4: 7,
+      vText3: 8,
+      vText2: 9,
+      prevref: 10,
+      emotionalhistory: 12,
+      ttsLocMP3: 13,
+      ttsLocTXT: 14,
+      ttsLocTXT3: 15,
+      ttsText: 16,
+      lineRef: 17,
+      lineURL: 18,
+      linePOST: 19,
+      lineChoices: 20,
+      lineChoicesAbbrev: 21,
+      typingData: 22,
+      divert: 23
+    }.each_pair do |key, value|
+      @post_params[key] = response[value]
+    end
 
-    @post_params['emotionalhistory'] = response[12]
-    @post_params['ttsLocMP3'] = response[13]
-    @post_params['ttsLocTXT'] = response[14]
-    @post_params['ttsLocTXT3'] = response[15]
-    @post_params['ttsText'] = response[16]
-    @post_params['lineRef'] = response[17]
-    @post_params['lineURL'] = response[18]
-    @post_params['linePOST'] = response[19]
-    @post_params['lineChoices'] = response[20]
-    @post_params['lineChoicesAbbrev'] = response[21]
-    @post_params['typingData'] = response[22]
-    @post_params['divert'] = response[23]
-
-    @backlog.push ({'question' => @post_params['vText3'], 'answer' => @post_params['ttsText']})
+    @backlog.push question: @post_params[:vText3], answer: @post_params[:ttsText]
   end
 end
 
 
 class Hash
   def to_querystring
-    result = []
-    self.keys.each_with_index do |key, index|
-      result.push "#{URI::encode key}=#{URI::encode self[key].to_s}"
-    end
-    result.join '&'
+    self.map { |pair| "#{URI::encode pair.first.to_s}=#{URI::encode pair.last.to_s}" }
+        .join '&'
   end
 end
