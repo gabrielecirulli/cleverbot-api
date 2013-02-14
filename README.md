@@ -8,7 +8,7 @@ require './cleverbot-api'
 
 bot = CleverBot.new
 
-puts bot.think 'Hello there.' #=> "Where are you from?"
+puts bot.think 'Hello there.' #=> "How are you?"
 puts bot.think 'Fine.'        #=> "Good."
 ```
 
