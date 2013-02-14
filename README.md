@@ -15,4 +15,6 @@ puts bot.think 'Fine.'        #=> "Good."
 You can also use the `#backlog` method to get access to an array of responses (first is the oldest, last is the newest).
 Responses are instances of the `CleverBotResponse` class. You can access the question and its corresponding answer using `#question` and `#answer`.
 ```ruby
+bot.backlog.first.question    #=> "Hello there."
 bot.backlog.last.answer       #=> "Good."
+```
