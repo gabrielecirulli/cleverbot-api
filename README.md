@@ -1,14 +1,18 @@
 # CleverBot API
 A very basic and barebones API implementation for CleverBot.
 
-If you're looking for an implementation in another language, you can check out Pierre-David Bélanger's version for **Mono/.NET**, **Java**, **Python** and **PHP** [here](http://code.google.com/p/chatter-bot-api/).
+If you're looking for an implementation in another language, you can check out Pierre-David Bélanger's version for *Mono/.NET*, *Java*, *Python* and *PHP* [here](http://code.google.com/p/chatter-bot-api/).
 
 ## Installation
-Installation is very simple. Just run
+Installation is very simple. Just run:
 ```
 gem install cleverbot-api
 ```
-and you're set!
+You can then include the CleverBot API in your programs with:
+```
+require 'cleverbot-api'
+```
+That's it!
 
 ## Usage
 This library is pretty easy to use. You can create a new bot using the method `CleverBot#new`, then make it think using `#think`:
