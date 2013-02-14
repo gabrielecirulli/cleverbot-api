@@ -4,7 +4,7 @@ A very basic and barebones API implementation for CleverBot. Many thanks to Pier
 ## Usage
 This library is pretty easy to use. You can create a new bot using the method `CleverBot#new`, then make it think using `#think`:
 ```ruby
-require './cleverbot-api'
+require 'cleverbot-api'
 
 bot = CleverBot.new
 
@@ -16,6 +16,6 @@ You can also use the `#backlog` method to get access to an array of responses (f
 
 Responses are instances of the `CleverBotResponse` class. You can access the question and its corresponding answer using `#question` and `#answer`.
 ```ruby
-bot.backlog.first.question    #=> "Hello there."
-bot.backlog.last.answer       #=> "Good."
+puts bot.backlog.first.question    #=> "Hello there."
+puts bot.backlog.last.answer       #=> "Good."
 ```
