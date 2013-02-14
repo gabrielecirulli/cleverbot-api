@@ -1,4 +1,5 @@
-require './cleverbot-api'
+require 'bundler/setup'
+require 'cleverbot-api'
 
 bot1 = CleverBot.new
 bot2 = CleverBot.new
