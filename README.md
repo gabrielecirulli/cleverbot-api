@@ -1,6 +1,8 @@
 # CleverBot API
 A very basic and barebones API implementation for CleverBot.
 
+If you're looking for an implementation in another language, you can check out Pierre-David Bélanger's version for **Mono/.NET**, **Java**, **Python** and **PHP** [here](http://code.google.com/p/chatter-bot-api/).
+
 ## Installation
 Installation is very simple. Just run
 ```
@@ -32,9 +34,6 @@ puts bot.backlog.last.answer       #=> "Good."
 ## Other things
 ### Bugs and improvements
 If you want to report a bug you've found, or would like to request an improvement or the addition of a new feature, you may do that by [submitting a new issue](./issues/new) to this repository.
-
-### API implementations in other languages
-You can find an implementation for *Mono/.NET*, *Java*, *Python* and *PHP* by Pierre-David Bélanger [here](http://code.google.com/p/chatter-bot-api/).
 
 ### Credits
 Many thanks to Pierre-David Bélanger for his support and his implementation of the API (over which I've partially based my own version).
