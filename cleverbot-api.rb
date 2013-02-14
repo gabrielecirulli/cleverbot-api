@@ -1,6 +1,5 @@
 require 'net/http'
 require 'digest/md5'
-require 'pry'
 
 class CleverBot
   def initialize
@@ -21,9 +20,11 @@ class CleverBot
 
   def think thought
     @post_params['stimulus'] = thought
-    response = make_request
-    save_data response
-    response[16] # Response text
+    response_data = make_request
+    save_post response_data
+    response = CleverBotResponse.new response_data
+    @backlog.push response
+    response.answer
   end
 
   def backlog
@@ -39,12 +40,11 @@ class CleverBot
 
   def make_request
     query_string = build_query
-
     result = @http.post @service_uri.path, query_string
     return result.body.split "\r"
   end
 
-  def save_data response
+  def save_post response
     {
       sessionid: 1,
       logurl: 2,
@@ -71,8 +71,15 @@ class CleverBot
     }.each_pair do |key, value|
       @post_params[key] = response[value]
     end
+  end
+end
 
-    @backlog.push question: @post_params[:vText3], answer: @post_params[:ttsText]
+class CleverBotResponse
+  attr_reader :question, :answer
+
+  def initialize response_data
+    @question = response_data[8]
+    @answer   = response_data[16]
   end
 end
 
