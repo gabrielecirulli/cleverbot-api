@@ -9,7 +9,7 @@ Installation is very simple. Just run:
 gem install cleverbot-api
 ```
 You can then include the CleverBot API in your programs with:
-```
+```ruby
 require 'cleverbot-api'
 ```
 That's it!
