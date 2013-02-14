@@ -37,7 +37,7 @@ puts bot.backlog.last.answer       #=> "Good."
 
 ## Other things
 ### Bugs and improvements
-If you want to report a bug you've found, or would like to request an improvement or the addition of a new feature, you may do that by [submitting a new issue](./issues/new) to this repository.
+If you want to report a bug you've found, or would like to request an improvement or the addition of a new feature, you may do that by [submitting a new issue](../../issues/new) to this repository.
 
 ### Credits
 Many thanks to Pierre-David Bélanger for his support and his implementation of the API (over which I've partially based my own version).
