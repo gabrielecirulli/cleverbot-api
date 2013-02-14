@@ -1,6 +1,13 @@
 # CleverBot API
 A very basic and barebones API implementation for CleverBot.
 
+## Installation
+Installation is very simple. Just run
+```
+gem install cleverbot-api
+```
+and you're set!
+
 ## Usage
 This library is pretty easy to use. You can create a new bot using the method `CleverBot#new`, then make it think using `#think`:
 
@@ -22,10 +29,14 @@ puts bot.backlog.first.question    #=> "Hello there."
 puts bot.backlog.last.answer       #=> "Good."
 ```
 
-## Other languages
+## Other things
+### Bugs and improvements
+If you want to report a bug you've found, or would like to request an improvement or the addition of a new feature, you may do that by [submitting a new issue](./issues/new) to this repository.
+
+### API implementations in other languages
 You can find an implementation for *Mono/.NET*, *Java*, *Python* and *PHP* by Pierre-David Bélanger [here](http://code.google.com/p/chatter-bot-api/).
 
-## Credits
+### Credits
 Many thanks to Pierre-David Bélanger for his support and his implementation of the API (over which I've partially based my own version).
 
 ## License
