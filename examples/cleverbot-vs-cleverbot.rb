@@ -7,8 +7,8 @@ bot2 = CleverBot.new
 current = ''
 loop do
   current = bot1.think current
-  puts "Bot1: #{current}"
+  puts "Bot A: #{current}"
 
   current = bot2.think current
-  puts "Bot2: #{current}"
+  puts "Bot B: #{current}"
 end
