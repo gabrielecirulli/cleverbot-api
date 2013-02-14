@@ -6,4 +6,7 @@ Gem::Specification.new do |s|
   s.author      = "Gabriele Cirulli"
   s.email       = "gabrycir@gmail.com"
   s.homepage    = "https://github.com/gabrielecirulli/cleverbot-api"
+  s.files       = %w(
+    lib/cleverbot-api.rb
+  )
 end
