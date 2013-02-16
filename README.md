@@ -1,4 +1,5 @@
 # CleverBot API
+[![Code Climate](https://codeclimate.com/github/gabrielecirulli/cleverbot-api.png)](https://codeclimate.com/github/gabrielecirulli/cleverbot-api)
 A very basic and barebones API implementation for CleverBot.
 
 If you're looking for an implementation in another language, you can check out Pierre-David Bélanger's version for *Mono/.NET*, *Java*, *Python* and *PHP* [here](http://code.google.com/p/chatter-bot-api/).
