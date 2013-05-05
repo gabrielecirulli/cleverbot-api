@@ -3,7 +3,7 @@ require 'digest/md5'
 
 class CleverBot
   def initialize
-    @service_uri = URI.parse 'http://cleverbot.com/webservicemin'
+    @service_uri = URI.parse 'http://www.cleverbot.com/webservicemin'
     @post_params = {
       start: 'y',
       icognoid: 'wsf',
