@@ -34,7 +34,7 @@ class CleverBot
   private
   def build_query
     current_query = @post_params.to_querystring
-    @post_params['icognocheck'] = Digest::MD5.hexdigest current_query[9..28] # 20 characters
+    @post_params['icognocheck'] = Digest::MD5.hexdigest current_query[9..34]
     @post_params.to_querystring
   end
 

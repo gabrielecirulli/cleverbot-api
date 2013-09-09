@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cleverbot-api (0.0.1)
+    cleverbot-api (0.0.4)
 
 GEM
   specs:

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "cleverbot-api"
-  s.version     = "0.0.3"
+  s.version     = "0.0.4"
   s.summary     = "A simple API to interface with CleverBot"
   s.description = "You can use this API to send messages and receive responses from CleverBot. You can create multiple instances of a connection with CleverBot and sessions are handled automatically for you."
   s.author      = "Gabriele Cirulli"
